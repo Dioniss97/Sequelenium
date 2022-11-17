@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
                 key: 'id'
             }
         },
-        iva_id: {
+        tax_id: {
             type: DataTypes.INTEGER,
             allowNull: true,
             references: {
@@ -53,10 +53,10 @@ module.exports = function(sequelize, DataTypes) {
                 ]
             },
             {
-                name: "iva_id",
+                name: "tax_id",
                 using: "BTREE",
                 fields: [
-                    { name: "iva_id" },
+                    { name: "tax_id" },
                 ]
             },
         ]

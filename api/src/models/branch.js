@@ -38,6 +38,20 @@ module.exports = function(sequelize, DataTypes) {
         web: {
             type: DataTypes.STRING(255),
             allowNull: false
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: true,
+            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: true,
+            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        },
+        deletedAt: {
+            type: DataTypes.DATE,
+            allowNull: true
         }
     }, {
         sequelize,

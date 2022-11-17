@@ -68,8 +68,8 @@ function initModels(sequelize) {
     Sale.hasMany(SalesDetail, { as: "sales_details", foreignKey: "sale_id"});
     Sale.belongsTo(Table, { as: "table", foreignKey: "table_id"});
     Table.hasMany(Sale, { as: "sales", foreignKey: "table_id"});
-    Price.belongsTo(Tax, { as: "iva", foreignKey: "iva_id"});
-    Tax.hasMany(Price, { as: "prices", foreignKey: "iva_id"});
+    Price.belongsTo(Tax, { as: "tax", foreignKey: "tax_id"});
+    Tax.hasMany(Price, { as: "prices", foreignKey: "tax_id"});
     Order.belongsTo(Worker, { as: "worker", foreignKey: "worker_id"});
     Worker.hasMany(Order, { as: "orders", foreignKey: "worker_id"});
     Sale.belongsTo(Worker, { as: "worker", foreignKey: "worker_id"});
