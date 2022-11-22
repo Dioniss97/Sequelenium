@@ -14,9 +14,9 @@ exports.create = (req, res) => {
     }
 
     const product = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
-        valid: req.body.valid ? req.body.valid : false
+        name: req.body.name,
+        category_id: req.body.category_id,
+        visible: req.body.visible
     };
 
     Product.create(product).then(data => {

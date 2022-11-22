@@ -14,9 +14,12 @@ exports.create = (req, res) => {
     }
 
     const worker = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
-        valid: req.body.valid ? req.body.valid : false
+        name: req.body.name,
+        surname: req.body.surname,
+        email: req.body.email,
+        password: req.body.password,
+        branch_id: req.body.branch_id,
+        active: req.body.active
     };
 
     Worker.create(worker).then(data => {

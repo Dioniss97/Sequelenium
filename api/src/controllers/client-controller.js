@@ -34,7 +34,7 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    
+
     const phone = req.query.phone;
 
     var condition = phone ? { phone: { [Op.like]: `%${phone}%` } } : null;
@@ -110,46 +110,3 @@ exports.delete = (req, res) => {
         });
     });
 };
-
-// exports.deleteAll = (req, res) => {
-
-//     Client.destroy({where: {}, truncate: false}).then(nums => {
-//         res.status(200).send({ message: `${nums} clientes han sido eliminados correctamente.` });
-//     }).catch(err => {
-//         res.status(500).send({
-//             message: err.message || "Algún error ha surgido al eliminar todos los clientes."
-//         });
-//     });
-// };
-
-// exports.findAllDeleted = (req, res) => {
-
-//     Client.findAll({where: {deletedAt: {[Op.ne]: null}}}).then(data => {
-//         res.status(200).send(data);
-//     }).catch(err => {
-//         res.status(500).send({
-//             message: err.message || "Algún error ha surgido al recuperar los datos."
-//         });
-//     });
-// };
-
-// exports.restore = (req, res) => {
-    
-//     const id = req.params.id;
-
-//     Client.restore({where: {id: id}}).then(num => {
-//         if (num == 1) {
-//             res.status(200).send({
-//                 message: "El cliente ha sido restaurado correctamente."
-//             });
-//         } else {
-//             res.status(404).send({
-//                 message: `No se puede restaurar el cliente con id=${id}.`
-//             });
-//         }
-//     }).catch(err => {
-//         res.status(500).send({
-//             message: "Error restaurando el cliente con id=" + id
-//         });
-//     });
-// };

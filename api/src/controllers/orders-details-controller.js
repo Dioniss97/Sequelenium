@@ -14,9 +14,8 @@ exports.create = (req, res) => {
     }
 
     const orderDetail = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
-        valid: req.body.valid ? req.body.valid : false
+        order_id: req.body.order_id,
+        price_id: req.body.price_id
     };
 
     OrderDetail.create(orderDetail).then(data => {

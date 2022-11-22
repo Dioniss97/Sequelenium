@@ -14,9 +14,9 @@ exports.create = (req, res) => {
     }
 
     const recipe = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
-        valid: req.body.valid ? req.body.valid : false
+        product_id: req.body.product_id,
+        product_distributor_id: req.body.product_distributor_id,
+        quantity: req.body.quantity
     };
 
     Recipe.create(recipe).then(data => {

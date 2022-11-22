@@ -37,8 +37,8 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
 
-    const type = req.query.type;
-    var condition = type ? { [Op.and]: [{type: { [Op.like]: `%${type}%` }, deletedAt: null }]} : {deletedAt: null};
+    const trade_name = req.query.trade_name;
+    var condition = trade_name ? { [Op.and]: [{trade_name: { [Op.like]: `%${trade_name}%` }, deletedAt: null }]} : {deletedAt: null};
  
     Business.findAll({ where: condition }).then(data => {
         res.status(200).send(data);

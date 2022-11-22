@@ -14,9 +14,19 @@ exports.create = (req, res) => {
     }
 
     const productsDistributor = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
-        valid: req.body.valid ? req.body.valid : false
+        distributor_id: req.body.distributor_id,
+        date: req.body.date,
+        category: req.body.category,
+        name: req.body.name,
+        weight: req.body.weight,
+        weight_unit: req.body.weight_unit,
+        price: req.body.price,
+        offer: req.body.offer,
+        offer_type: req.body.offer_type,
+        offer_affiliate: req.body.offer_affiliate,
+        weight_standard: req.body.weight_standard,
+        price_standard: req.body.price_standard,
+        price_standard_calculate: req.body.price_standard_calculate
     };
 
     ProductsDistributor.create(productsDistributor).then(data => {

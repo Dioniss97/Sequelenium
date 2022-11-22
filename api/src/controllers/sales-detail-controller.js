@@ -14,9 +14,8 @@ exports.create = (req, res) => {
     }
 
     const salesDetail = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
-        valid: req.body.valid ? req.body.valid : false
+        sale_id: req.body.sale_id,
+        price_id: req.body.price_id
     };
 
     SalesDetail.create(salesDetail).then(data => {

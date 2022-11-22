@@ -14,8 +14,9 @@ exports.create = (req, res) => {
     }
 
     const price = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
+        product_id: req.body.product_id,
+        tax_id: req.body.tax_id,
+        base_price: req.body.base_price,
         valid: req.body.valid ? req.body.valid : false
     };
 

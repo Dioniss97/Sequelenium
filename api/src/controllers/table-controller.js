@@ -14,9 +14,10 @@ exports.create = (req, res) => {
     }
 
     const table = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
-        valid: req.body.valid ? req.body.valid : false
+        number: req.body.number,
+        ubication_id: req.body.ubication_id,
+        pax: req.body.pax,
+        status: req.body.status
     };
 
     Table.create(table).then(data => {

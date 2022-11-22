@@ -27,9 +27,17 @@ exports.create = (req, res) => {
     }
 
     const sale = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
-        valid: req.body.valid ? req.body.valid : false
+        worker_id: req.body.worker_id,
+        client_id: req.body.client_id,
+        table_id: req.body.table_id,
+        payment_method_id: req.body.payment_method_id,
+        ticket_number: req.body.ticket_number,
+        total_base_price: req.body.total_base_price,
+        total_tax_price: req.body.total_tax_price,
+        total_price: req.body.total_price,
+        date_emitted: req.body.date_emitted,
+        hour_emitted: req.body.hour_emitted,
+        service_id: req.body.service_id
     };
 
     Sale.create(sale).then(data => {

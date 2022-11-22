@@ -14,9 +14,9 @@ exports.create = (req, res) => {
     }
 
     const paymentMethod = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
-        valid: req.body.valid ? req.body.valid : false
+        name: req.body.name,
+        valid: req.body.valid
+        
     };
 
     PaymentMethod.create(paymentMethod).then(data => {

@@ -14,9 +14,7 @@ exports.create = (req, res) => {
     }
 
     const productsCategory = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
-        valid: req.body.valid ? req.body.valid : false
+        name: req.body.name
     };
 
     ProductsCategory.create(productsCategory).then(data => {

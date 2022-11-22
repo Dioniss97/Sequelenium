@@ -4,11 +4,8 @@ const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
 
-    console.log(req.body.business_id.value);
-
-    // Validamos.
-    if (!req.body.business_id 
-        || !req.body.trade_name 
+    if ( !req.body.business_id
+        ||  !req.body.trade_name 
         || !req.body.address 
         || !req.body.location 
         || !req.body.phone 
@@ -22,7 +19,6 @@ exports.create = (req, res) => {
         return;
     }
 
-    // Obtenemos los datos del formulario:
     const branch = {
         business_id: req.body.business_id,
         trade_name: req.body.trade_name,
@@ -33,7 +29,6 @@ exports.create = (req, res) => {
         web: req.body.web
     };
 
-    // Guardamos los datos en la base de datos:
     Branch.create(branch).then(data => {
         res.status(200).send(data);
     }).catch(err => {
@@ -45,8 +40,9 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
 
-    const type = req.query.type;
-    var condition = type ? { [Op.and]: [{type: { [Op.like]: `%${type}%` }, deletedAt: null }]} : {deletedAt: null};
+    const trade_name = req.query.trade_name;
+    // condición para buscar por el trade_name
+    var condition = trade_name ? { trade_name: { [Op.like]: `%${trade_name}%` } } : null;
  
     Branch.findAll({ where: condition }).then(data => {
         res.status(200).send(data);

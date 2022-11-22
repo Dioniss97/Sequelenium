@@ -14,9 +14,8 @@ exports.create = (req, res) => {
     }
 
     const order = {
-        type: req.body.type,
-        multiplicator:  1 + (req.body.type/100),
-        valid: req.body.valid ? req.body.valid : false
+        worker_id: req.body.worker_id,
+        client_id: req.body.client_id
     };
 
     Order.create(order).then(data => {
@@ -30,8 +29,7 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
 
-    const type = req.query.type;
-    var condition = type ? { [Op.and]: [{type: { [Op.like]: `%${type}%` }, deletedAt: null }]} : {deletedAt: null};
+    condition = {deletedAt: null};
  
     Order.findAll({ where: condition }).then(data => {
         res.status(200).send(data);
